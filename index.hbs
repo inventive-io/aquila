@@ -1,0 +1,49 @@
+<section class="section--left section--half">
+	<div class="intro">
+		<h1 class="intro__head">{{ name }}</h1>
+		<h5 class="intro__subhead">{{ title }}</h1>
+		<p class="intro__text">{{ about }}</p>
+		<ul class="icon-list">
+			{{#if email.show}}
+			<li class="icon-list__item">
+				<i class="fa fa-envelope"></i>
+			</li>
+			{{/if}}
+			{{#if twitter.show}}
+			<li class="icon-list__item">
+				<i class="fa fa-twitter"></i>
+			</li>
+			{{/if}}
+			{{#if github.show}}
+			<li class="icon-list__item">
+				<i class="fa fa-github"></i>
+			</li>
+			{{/if}}
+			{{#if linkedIn.show}}
+			<li class="icon-list__item">
+				<i class="fa fa-linkedin"></i>
+			</li>
+			{{/if}}
+			{{#if dribbble.show}}
+			<li class="icon-list__item">
+				<i class="fa fa-dribbble"></i>
+			</li>
+			{{/if}}
+		</ul>
+	</div>
+</section>
+<section class="section--right section--half">
+	<ul class="projects">
+		{{#each projects}}
+			{{#if this.show}}
+				<li class="project" data-index="{{@index}}">
+					<a href="{{this.url}}" target="_blank">
+						<h4 class="project__head">{{this.name}}</h4>
+					</a>
+					<p class="project__text">{{this.description}}</p>
+				</li>
+				{{> project this}}
+			{{/if}}
+		{{/each}}
+	</ul>
+</section>
